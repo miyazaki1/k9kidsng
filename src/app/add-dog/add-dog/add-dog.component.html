@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="text-center">Select Dogs</h2>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select
+            class="form-control"
+            id="exampleFormControlSelect1"
+            [(ngModel)]="selectedBreed"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option *ngFor="let val of breeds" [value]="val.name">{{
+              val.name
+            }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-loader *ngIf="petFinderService.isLoading"></app-loader>
