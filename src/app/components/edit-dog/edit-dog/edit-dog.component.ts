@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DogService } from "../../service/dog.service";
+import { DogService } from "../../../services/dog.service";
 import { Router } from "@angular/router";
-import { Dog } from "../../model/dog.model";
+import { Dog } from "../../../model/dog.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 
