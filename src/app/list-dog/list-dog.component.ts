@@ -29,7 +29,7 @@ export class ListDogComponent implements OnInit {
   }
 
   deleteDog(dogs: Dog, i) {
-    this.dogService.deleteDog(dogs.id).subscribe(data => {
+    this.dogService.deleteDog(dogs).subscribe(data => {
       this.dogs.splice(i, 1);
       // this.dogs = this.dogs.filter(element => element !== dogs);
       console.log(this.dogs, "After deletion");

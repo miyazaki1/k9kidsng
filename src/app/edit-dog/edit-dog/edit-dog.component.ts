@@ -32,14 +32,14 @@ export class EditDogComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required]
     });
-    this.dogService.getDogById(+userId).subscribe(data => {
+    this.dogService.getDogByUsername(userId).subscribe(data => {
       this.editForm.setValue(data);
     });
   }
 
   onSubmit() {
     this.dogService
-      .updateDog(this.editForm.value)
+      .updateDog(this.editForm.value, this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {
