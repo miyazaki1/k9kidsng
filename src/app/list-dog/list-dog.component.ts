@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DogService } from "../../services/dog.service";
-import {PetfinderService} from '../../services/petfinder.service'
-import { Dog } from "../../model/dog.model";
+import { DogService } from "../service/dog.service";
+import {PetfinderService} from '../service/petfinder.service'
+import { Dog } from "../model/dog.model";
 import { Router } from "@angular/router";
 import { element } from "@angular/core/src/render3";
 
