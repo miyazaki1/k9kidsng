@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DogService } from "../../services/dog.service";
-import {PetfinderService} from '../../services/petfinder.service'
-import { Dog } from "../../model/dog.model";
+import { DogService } from "../service/dog.service";
+import {PetfinderService} from '../service/petfinder.service'
+import { Dog } from "../model/dog.model";
 import { Router } from "@angular/router";
 import { element } from "@angular/core/src/render3";
 
@@ -29,7 +29,7 @@ export class ListDogComponent implements OnInit {
   }
 
   deleteDog(dogs: Dog, i) {
-    this.dogService.deleteDog(dogs.id).subscribe(data => {
+    this.dogService.deleteDog(dogs).subscribe(data => {
       this.dogs.splice(i, 1);
       // this.dogs = this.dogs.filter(element => element !== dogs);
       console.log(this.dogs, "After deletion");

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DogService } from "../../../services/dog.service";
+import { DogService } from "../../service/dog.service";
 import { Router } from "@angular/router";
-import { Dog } from "../../../model/dog.model";
+import { Dog } from "../../model/dog.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 
@@ -32,14 +32,14 @@ export class EditDogComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required]
     });
-    this.dogService.getDogById(+userId).subscribe(data => {
+    this.dogService.getDogByUsername(userId).subscribe(data => {
       this.editForm.setValue(data);
     });
   }
 
   onSubmit() {
     this.dogService
-      .updateDog(this.editForm.value)
+      .updateDog(this.editForm.value, this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {
