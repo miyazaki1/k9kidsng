@@ -5,7 +5,7 @@ import { Dog } from "../model/dog.model";
 const BASE_URL = `http://localhost:8088/brooks/`;
 
 @Injectable()
-export class DogService {
+export class DogService { 
 
   token: string;
 

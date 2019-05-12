@@ -11,28 +11,28 @@
           >
             <div class="form-label-group">
               <input
-                type="email"
-                id="inputEmail"
+                type="username"
+                id="inputUsername"
                 class="form-control"
-                placeholder="Email address"
+                placeholder="username"
                 required
                 autofocus
-                formControlName="email"
+                formControlName="username"
                 [maxlength]="25"
               />
-              <label for="inputEmail">Email address</label>
+              <label for="inputUsername">Username</label>
 
               <!-- validation -->
               <div class="validation-errors">
                 <ng-container
-                  *ngFor="let validation of validationMessages.email"
+                  *ngFor="let validation of validationMessages.username"
                 >
                   <div
                     class="error-message"
                     *ngIf="
-                      loginForm.get('email').hasError(validation.type) &&
-                      (loginForm.get('email').dirty ||
-                        loginForm.get('email').touched)
+                      loginForm.get('username').hasError(validation.type) &&
+                      (loginForm.get('username').dirty ||
+                        loginForm.get('username').touched)
                     "
                   >
                     {{ validation.message }}
