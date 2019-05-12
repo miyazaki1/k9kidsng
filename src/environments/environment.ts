@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  account:{
+    login: "account/login",
+    register: "account/create",
+    byUsername: "account/users/id",
+    byId: "account/users/",
+    update: "account/update/",
+    delete: "account/delete/",
+    fav: "account/fav/",
+    favAdd: "account/fav/add",
+    favDelete: "account/fav/remove"
+  }
 };
 
 //change port to match your port 
