@@ -1,17 +1,10 @@
 export class Dog {
   id: number;
-  Name: string;
-  Age: number;
-  Gender: string;
-  Type: string;
-  Species: string;
-
-  constructor(id:number,name:string,age:number,gender:string, type:string, species,string){
-    this.id=id;
-    this.Name = name;
-    this.Age=age;
-    this.Gender=gender;
-    this.Type=type;
-    this.Species=species;
+  breed_id: number;
+  account_id: number;
+  constructor(id: number, breed_id: number, account_id: number) {
+    this.id = id;
+    this.breed_id = breed_id;
+    this.account_id = account_id;
   }
 }

@@ -60,18 +60,6 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {}
 
   onSubmit() {
-    // this.submitted = true;
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-    // if (
-    //   this.loginForm.controls.email.value == "neelpat29@gmail.com" &&
-    //   this.loginForm.controls.password.value == "Brooks@99"
-    // ) {
-    //   this.router.navigate(["add-dog"]);
-    // } else {
-    //   this.invalidLogin = true;
-    // }
 
     this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value).subscribe(
       success => {
