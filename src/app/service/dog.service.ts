@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Dog } from "../model/dog.model";
+import { Breed } from "../model/breed.model";
 import { environment, BASE_URL} from "src/environments/environment";
 
 //const BASE_URL = `http://localhost:8088/brooks/`;
@@ -16,23 +16,27 @@ export class DogService {
   }
 
   getFavoritesByUsername(username: string) {
-    return this.http.get<Dog>(BASE_URL + environment.account.fav + username);
+    return this.http.get<any>(BASE_URL + environment.account.fav + username);
   }
 
-  createFavorites(dog:Dog) {
-    return this.http.post<Dog>(BASE_URL + environment.account.favAdd, dog);
+  createFavorites(breed: Breed) {
+    return this.http.post<Breed>(BASE_URL + environment.account.favAdd, breed);
   }
 
-  deleteFavorites(dog: Dog) {
-    return this.http.post<Dog>(BASE_URL + environment.account.favDelete, dog);
+  deleteFavorites(breed: Breed) {
+    return this.http.post<any>(BASE_URL + environment.account.favDelete, breed);
   }
 
   getAllBreeds() {
-    return this.http.get<Dog>(BASE_URL + environment.account.allBreeds);
+    return this.http.get(BASE_URL + environment.account.allBreeds);
   }
 
-  getBreedInfoByName(breed_id: number) {
-    return this.http.get<Dog>(BASE_URL + environment.account.breedInfo + breed_id);
+  getBreedInfoById(breed_id: number) {
+    return this.http.get(BASE_URL + environment.account.breedInfo + breed_id);
+  }
+
+  getBreedInfoByName(breed_name: string){
+    return this.http.get(BASE_URL + environment.account.breedInfoName + breed_name);
   }
 
   getImageIdByBreed(breed_id: number) {
