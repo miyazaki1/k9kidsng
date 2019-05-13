@@ -23,7 +23,7 @@ export class AccountService {
       return this.http.get<Account>(BASE_URL + environment.account.byId + "?id=" + id)
   }
 
-  creatAccount(account: Account) {
+  createAccount(account: Account) {
     return this.http.post(BASE_URL + environment.account.register, account);
   }
 
