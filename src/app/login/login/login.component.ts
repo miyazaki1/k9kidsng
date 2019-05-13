@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       //   message: "Email must contain @ and . character"
       // }
     ],
+    
     password: [
       { type: "required", message: "Password is required." },
       {
