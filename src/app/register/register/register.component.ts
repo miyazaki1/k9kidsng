@@ -8,7 +8,7 @@ import {Account} from "src/app/model/account.model";
 })
 
 
-  export class RegistrationComponent implements OnInit {
+  export class RegisterComponent implements OnInit {
 
     regForm: Account = {
       
