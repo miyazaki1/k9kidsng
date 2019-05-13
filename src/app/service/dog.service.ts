@@ -23,7 +23,7 @@ export class DogService {
     return this.http.post<Dog>(BASE_URL + environment.account.favAdd, dog);
   }
 
-  deleteFavorites(dog: Dog) {
+  deleteFavorite(dog: Dog) {
     return this.http.post<Dog>(BASE_URL + environment.account.favDelete, dog);
   }
 
