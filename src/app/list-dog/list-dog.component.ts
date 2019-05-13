@@ -19,7 +19,7 @@ export class ListDogComponent implements OnInit {
   constructor(private router: Router, private dogService: DogService, private petFinderService: PetfinderService) {}
 
   ngOnInit() {
-    this.getDogsDetails();
+    //this.getDogsDetails();
   }
 
   getDogsDetails() {
@@ -36,11 +36,11 @@ export class ListDogComponent implements OnInit {
     });
   }
 
-  editDog(dogs: Dog) {
-    localStorage.removeItem("editDogId");
-    localStorage.setItem("editDogId", dogs.id.toString());
-    this.router.navigate(["edit-dog"]);
-  }
+  // editDog(dogs: Dog) {
+  //   localStorage.removeItem("editDogId");
+  //   localStorage.setItem("editDogId", dogs.id.toString());
+  //   this.router.navigate(["edit-dog"]);
+  // }
 
   addDog(): void {
     this.router.navigate(["add-dog"]);
