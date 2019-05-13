@@ -13,7 +13,10 @@ export const environment = {
     delete: "account/delete/",
     fav: "account/fav/",
     favAdd: "account/fav/add",
-    favDelete: "account/fav/remove"
+    favDelete: "account/fav/remove",
+    allBreeds: "breeds/all",
+    breedInfo: "breeds/id/",
+    images: "images/"
   }
 };
 

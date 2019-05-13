@@ -27,4 +27,16 @@ export class DogService {
     return this.http.post<Dog>(BASE_URL + environment.account.favDelete, dog);
   }
 
+  getAllBreeds() {
+    return this.http.get<Dog>(BASE_URL + environment.account.allBreeds);
+  }
+
+  getBreedInfoByName(breed_id: number) {
+    return this.http.get<Dog>(BASE_URL + environment.account.breedInfo + breed_id);
+  }
+
+  getImageIdByBreed(breed_id: number) {
+    return this.http.get(BASE_URL + environment.account.images + breed_id);
+  }
+
 }
