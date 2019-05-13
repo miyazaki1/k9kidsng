@@ -36,7 +36,7 @@ export class AddDogComponent implements OnInit {
   }
 
   onSubmit() {
-    this.dogService.createDog(this.addForm.value).subscribe(data => {
+    this.dogService.createFavorites(this.addForm.value).subscribe(data => {
       this.petFinderService.getDogs().subscribe(data => {
         this.dogs = data;
         console.log("Result", this.dogs);
