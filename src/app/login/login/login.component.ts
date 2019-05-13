@@ -7,6 +7,8 @@ import {
   MinLengthValidator
 } from "@angular/forms";
 
+import {AuthenticationService} from "src/app/service/auth.service";
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -18,20 +20,20 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
 
   validationMessages = {
-    email: [
-      { type: "required", message: "Email is required." },
-      {
-        type: "minlength",
-        message: "Email must be at least 5 characters long."
-      },
-      {
-        type: "maxlength",
-        message: "Email cannot be more than 25 characters long."
-      },
-      {
-        type: "pattern",
-        message: "Email must contain @ and . character"
-      }
+    username: [
+      // { type: "required", message: "Email is required." },
+      // {
+      //   type: "minlength",
+      //   message: "Email must be at least 5 characters long."
+      // },
+      // {
+      //   type: "maxlength",
+      //   message: "Email cannot be more than 25 characters long."
+      // },
+      // {
+      //   type: "pattern",
+      //   message: "Email must contain @ and . character"
+      // }
     ],
     password: [
       { type: "required", message: "Password is required." },
@@ -51,41 +53,55 @@ export class LoginComponent implements OnInit {
     ]
   };
 
-  emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  //emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\[\]"\';:_\-<>\., =\+\/\\]).{8,}$/;
   // numberAndcharacterPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]/;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {}
 
   onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
-    if (
-      this.loginForm.controls.email.value == "neelpat29@gmail.com" &&
-      this.loginForm.controls.password.value == "Brooks@99"
-    ) {
-      this.router.navigate(["add-dog"]);
-    } else {
-      this.invalidLogin = true;
-    }
+    // this.submitted = true;
+    // if (this.loginForm.invalid) {
+    //   return;
+    // }
+    // if (
+    //   this.loginForm.controls.email.value == "neelpat29@gmail.com" &&
+    //   this.loginForm.controls.password.value == "Brooks@99"
+    // ) {
+    //   this.router.navigate(["add-dog"]);
+    // } else {
+    //   this.invalidLogin = true;
+    // }
+
+    this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value).subscribe(
+      success => {
+        console.log("Successful response sent from server: " + success.token);
+
+        sessionStorage.setItem("currentUser", success.token);
+
+        this.router.navigate(["/add-dog"])
+      },
+      error => {
+        console.log("Error response sent from server: " + error.message);
+      }
+    )
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: [
-        "neelpat29@gmail.com",
-        Validators.compose([
-          Validators.minLength(5),
-          Validators.maxLength(25),
-          Validators.pattern(this.emailPattern),
-          // Validators.pattern(this.numberAndcharacterPattern),
-          Validators.required
-        ])
+      username: [
+        ""
+        // "neelpat29@gmail.com",
+        // Validators.compose([
+        //   Validators.minLength(5),
+        //   Validators.maxLength(25),
+        //   Validators.pattern(this.emailPattern),
+        //   // Validators.pattern(this.numberAndcharacterPattern),
+        //   Validators.required
+        // ])
       ],
       password: [
-        "Brooks@99",
+        "",
         Validators.compose([
           Validators.minLength(8),
           Validators.maxLength(12),

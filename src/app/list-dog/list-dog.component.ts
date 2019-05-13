@@ -5,7 +5,7 @@ import { Dog } from "../model/dog.model";
 import { Router } from "@angular/router";
 import { element } from "@angular/core/src/render3";
 
-@Component({
+ @Component({
   selector: "app-list-dog",
   templateUrl: "./list-dog.component.html",
   styleUrls: ["./list-dog.component.scss"]
