@@ -1,5 +1,4 @@
 <div>
-  <!-- Invoke the attemptRegister function in the RegistrationComponent when submit button pressed -->
   <form novalidate (ngSubmit)="register()">
     <div >
       <div >
@@ -29,10 +28,9 @@
       </div>
     </div>
 
-    <!-- Div to hold Registration Response sent from Spring Backend -->
-    <div *ngIf="message">
+    <!-- <div *ngIf="message">
       <div [ngClass]="messageStyle">{{ message }}</div>
-    </div>
+    </div> -->
   </form>
 
 </div>

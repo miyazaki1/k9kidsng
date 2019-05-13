@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       //   message: "Email must contain @ and . character"
       // }
     ],
-    
+
     password: [
       { type: "required", message: "Password is required." },
       {
@@ -60,6 +60,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {}
 
+  register() {
+    this.router.navigate(["/register"]);
+  }
   onSubmit() {
     // this.submitted = true;
     // if (this.loginForm.invalid) {
@@ -113,7 +116,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  register() {
-    this.router.navigateByUrl("register");
-  }
 }
