@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
 
         sessionStorage.setItem("currentUser", success.token);
 
-        this.router.navigate(["/add-dog"])
+        this.router.navigate(["/list-dog"])
       },
       error => {
         console.log("Error response sent from server: " + error.message);
