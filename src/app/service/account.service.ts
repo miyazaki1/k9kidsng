@@ -9,7 +9,6 @@ import { environment, BASE_URL} from "src/environments/environment";
 export class AccountService { 
 
   token: string;
-
   headers: HttpHeaders;
 
   constructor(private http: HttpClient) {

@@ -1,34 +1,47 @@
 <div class="col-md-12 dogs-list">
   <h2>Dog Details</h2>
-  <button class="btn btn-danger add-btn" (click)="addDog()">Add Dog</button>
+ 
+  <div>
+    <!-- Example of CRUD OPERATIONS-->
+    <input type="text" id="username" value="" />
+    <button (click)="fetchData()">Retrieve Favorites</button>
+  </div>
+
+  <div>
+      UserId<input type="text" id="userId" value="" />
+      BreedId<input type="text" id="breedId" value="" />
+
+      <button class="btn btn-danger add-btn" (click)="addDog()">Add Dog</button>
+  </div>
+  
   <table class="table table-striped">
     <thead>
       <tr>
-        <th class="hidden">Id</th>
+        <th>Breed ID</th>
         <th>Name</th>
-        <th>UserName</th>
-        <th>Email</th>
-        <th>Action</th>
+        <th>Temparement</th>
+        <th>Origin</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of dogs; index as i">
-        <td class="hidden">{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.email }}</td>
-        <td>
+      <tr *ngFor="let breed of breeds; index as i">
+        <td>{{ breed.id }}</td>
+        <td>{{ breed.name }}</td>
+        <td>{{ breed.temperament }}</td>
+        <td>{{ breed.origin }}</td>
+        
+        <!-- <td>
           <button class="btn btn-danger" (click)="deleteDog(dogs)">
             Delete
           </button>
-          <button
+           <button
             class="btn btn-danger"
             (click)="editDog(dogs)"
             style="margin-left: 20px;"
           >
             Edit
-          </button>
-        </td>
+          </button> 
+        </td>-->
       </tr>
     </tbody>
   </table>
