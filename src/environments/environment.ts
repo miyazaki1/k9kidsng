@@ -16,6 +16,7 @@ export const environment = {
     favDelete: "account/fav/remove",
     allBreeds: "breeds/all",
     breedInfo: "breeds/id/",
+    breedInfoName: "breeds/name/",
     images: "images/"
   }
 };
