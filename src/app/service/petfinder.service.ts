@@ -35,12 +35,12 @@ export class PetfinderService {
 
   getDogs() {
     this.setAuthorizationHeader();
-    return this.http.get<Dog[]>(`${API_URL}/animals`);
+    return this.http.get<Dog[]>(`${API_URL}/types/dog/breeds`);
   }
 
   getBreeds() {
     this.setAuthorizationHeader();
-    return this.http.get<Dog[]>(`${API_URL}/types/dog/breeds`, {
+    return this.http.get<Dog[]>(`${API_URL}/types/dog/`, {
       headers: this.headers
     });
   }

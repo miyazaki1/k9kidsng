@@ -20,8 +20,8 @@ export class EditDogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let userId = localStorage.getItem("editUserId");
-    if (!userId) {
+    let username = localStorage.getItem("editUserId");
+    if (!username) {
       alert("Invalid action.");
       this.router.navigate(["list-dog"]);
       return;
@@ -32,22 +32,24 @@ export class EditDogComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required]
     });
-    this.dogService.getDogByUsername(userId).subscribe(data => {
+    this.dogService.getFavoritesByUsername(username).subscribe(data => {
       this.editForm.setValue(data);
     });
   }
 
+
+
   onSubmit() {
-    this.dogService
-      .updateDog(this.editForm.value, this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate(["list-dog"]);
-        },
-        error => {
-          alert(error);
-        }
-      );
+    // this.dogService
+    //   .updateDog(this.editForm.value, this.editForm.value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       this.router.navigate(["list-dog"]);
+    //     },
+    //     error => {
+    //       alert(error);
+    //     }
+    //   );
   }
 }

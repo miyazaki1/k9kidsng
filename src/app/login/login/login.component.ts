@@ -60,18 +60,6 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {}
 
   onSubmit() {
-    // this.submitted = true;
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-    // if (
-    //   this.loginForm.controls.email.value == "neelpat29@gmail.com" &&
-    //   this.loginForm.controls.password.value == "Brooks@99"
-    // ) {
-    //   this.router.navigate(["add-dog"]);
-    // } else {
-    //   this.invalidLogin = true;
-    // }
 
     this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value).subscribe(
       success => {
@@ -79,7 +67,7 @@ export class LoginComponent implements OnInit {
 
         sessionStorage.setItem("currentUser", success.token);
 
-        this.router.navigate(["/add-dog"])
+        this.router.navigate(["/list-dog"])
       },
       error => {
         console.log("Error response sent from server: " + error.message);
@@ -91,14 +79,6 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: [
         ""
-        // "neelpat29@gmail.com",
-        // Validators.compose([
-        //   Validators.minLength(5),
-        //   Validators.maxLength(25),
-        //   Validators.pattern(this.emailPattern),
-        //   // Validators.pattern(this.numberAndcharacterPattern),
-        //   Validators.required
-        // ])
       ],
       password: [
         "",
