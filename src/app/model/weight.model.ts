@@ -1,4 +1,8 @@
 export class Weight{
     imperial:string;
-    mertric:string;
+    metric:string;
+    constructor(imperial:string,metric:string){
+        this.imperial = imperial;
+        this.metric = metric;
+    }
 }
